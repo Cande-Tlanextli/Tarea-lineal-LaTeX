@@ -12,7 +12,7 @@ Este repositorio contiene el desarrollo parcial de la tarea de Álgebra Lineal, 
 ---
 
 ## Contenido del repositorio
-- `Tarea-lineal.tex` → Documento fuente en LaTeX (parcial).  
+- `Tarea-lineal.tex` → Versión actual del documento fuente en LaTeX.  
 - `Tarea-lineal.pdf` → Versión compilada hasta el momento.  
 
 ---
