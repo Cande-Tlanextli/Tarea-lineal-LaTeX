@@ -1,0 +1,749 @@
+	\documentclass{article}
+	\usepackage{graphicx}
+	\usepackage{amssymb}
+	\usepackage{amsmath}
+	\usepackage{mathrsfs}
+	\usepackage{amsthm}
+	\usepackage{hyperref}
+	
+	
+	\title{Tarea II, Álgebra Lineal I\\[1ex] Dimensión y transformaciones lineales}
+	\author{
+		Santillán González Abraham Candelario
+		\and
+		Trejo Rodríguez Dara Tiferet
+	}
+	
+	\date{Universidad Nacional Autónoma de México, Facultad de Ciencias\\[1ex] Septiembre 2025}
+	
+	\begin{document}
+		
+		\maketitle
+		\newpage
+		
+		\section*{Nota Importante de la versión}
+		
+		Esta versión contiene el avance parcial del documento en LaTeX.
+		Por razones de las contingencias actuales, actividades correspondientes
+		y el ajuste a los horarios en clases en línea,
+		no fue posible concluir el formato completo antes del cierre en Classroom.
+		El documento se encuentra actualmente en desarrollo. \\ 
+		
+		El progreso actual puede consultarse en los siguientes enlaces:
+		
+		\begin{itemize}
+			\item GitHub: \href{https://github.com/Cande-Tlanextli/Tarea-lineal-LaTeX.git}{Repositorio GitHub}
+			\item Overleaf: \href{https://www.overleaf.com/read/xvcfwkqfjvgx#c1b3df}{Proyecto Overleaf}
+			\item Google Drive: \href{https://drive.google.com/drive/folders/1riBnh370KrlFX1c7xBEoZJi1Zb3alMQC?usp=sharing}{Carpeta Drive}
+		\end{itemize}
+		
+		
+		
+		
+		\section*{1. Dimensión}
+		
+		\begin{enumerate}
+			
+			%Ejercicio Número 1, de Dimensión
+			
+			\item \(1.1_1\) 
+			Supongamos que \(U\) y \(W\) son subespacios de \(\mathbb{R}^8\) tales que \(\dim U=3\), \(\dim W=5\) y \(U+W=\mathbb{R}^8\). Prueba que:
+			
+			\begin{equation*}
+				\mathbb{R}^8 = U \oplus W
+			\end{equation*}
+			
+			%Ejercicio Número 2, de Dimensión
+			
+			\item \(1.2_2\) 
+			Supongamos que \(U\) y \(W\) son subespacios de \(\mathbb{R}^9\) tales que \(\dim U=5\), \(\dim W=5\). Prueba que:
+			
+			\begin{equation*}
+				U \cap W \neq \{0\}
+			\end{equation*}
+			
+			\textbf{Demostración:}\\
+			
+			Sea \( U, W \subseteq \mathbb{R}^9\) con \(\dim U = \dim W = 5\).\\
+			
+			Sabemos:
+			\begin{equation*}
+				\dim(U+W) = \dim U + \dim W - \dim(U \cap W)
+			\end{equation*}
+			
+			Sustituimos:
+			\begin{equation*}
+				\begin{aligned}
+					\dim(U+W) &= 5 + 5 - \dim(U \cap W) \\
+					\implies\ & \dim(U+W) = 10 - \dim(U \cap W) \\
+					\implies\ & \dim(U+W) \leq 9 \\
+					\implies\ & 10 - \dim(U \cap W) \leq 9
+				\end{aligned}
+			\end{equation*}
+			
+			Despejando:
+			\begin{equation*}
+				\begin{aligned}
+					-\dim(U \cap W) \le -1 \\
+					\implies\  \dim(U \cap W) \ge 1
+				\end{aligned}
+			\end{equation*}
+			
+			\begin{equation*}
+				\boxed{\therefore U \cap W \neq \{0\}}
+			\end{equation*}
+			
+		\end{enumerate}
+		
+		\section*{2. Transformaciones lineales}
+		
+		\begin{enumerate}
+			
+			%Ejercicio 5, de transfromaciónes lineales
+			
+			\item[] \(2.1_5\) 
+			Determina cuáles de las siguientes aplicaciones \(F\) son lineales:
+			
+			%Inciso "a", del ejercicio 5 de transfrommaciónes lineales
+			
+			\item \(2.1_a\) 
+			\(F: \mathbb{R}^3 \to \mathbb{R}^2\) definida por \(F(x,y,z)=(x,z)\)
+			
+			%Inciso "c", del ejercicio 5 de transfrommaciónes lineales
+			
+			\item \(2.1_c\) 
+			\(F: \mathbb{R}^3 \to \mathbb{R}^3\) definida por \(F(x,y,z)=(x,y,z)+(0,-1,0)\)\\
+			
+			Calculando:
+			\begin{equation*}
+				\begin{aligned}
+					&F(0,0,0)  (\text{vector }0)\\
+					\implies & F(0,0,0) =(0,0,0)+(0,-1,0)\\
+					&\text{} = (0,-1,0)\\	
+					&\text{} \neq (0,0,0)
+				\end{aligned}
+			\end{equation*}
+			
+			Aditividad:\\
+			\\Tomemos dos vectores \(u=(u_1,u_2,u_3)\) y \(v=(v_1,v_2,v_3)\)
+			\begin{equation*}
+				\begin{aligned}
+					\implies F(u+v) &=(u+v)+a\\
+					&=u+v+a\\
+					\implies F(u)+F(v) &=(u+a)+(v+a)\\
+					&=u+v+2a
+				\end{aligned}
+			\end{equation*}
+			
+			Sea \(\lambda \in \mathbb{R}\) y \(v\) cualquiera: 
+			\begin{equation*}
+				\begin{aligned}
+					F(\lambda v) &= \lambda v+a\\
+					\lambda F(v) &= \lambda (v+a)
+				\end{aligned}
+			\end{equation*}
+			
+			Ej: tenemos \(v=(0,1,0)\) y \(\lambda =2\)
+			\begin{equation*}
+				\begin{aligned}
+					\implies F(v) &=(0,1,0)+(0,-1,0)=(0,0,0)\\
+					\implies F(2v) &=F(0,2,0)\\ 
+									&=(0,2,0)+(0,-1,0)=(0,1,0)
+				\end{aligned}
+			\end{equation*}
+			
+			Si fuera lineal deberíamos obtener \((0,0,0)\), sin embargo se obtiene \((0,1,0)\), lo cual es una contradicción
+			\begin{equation*}
+				\boxed{ \therefore F(x,y,z)=(x,y,z)+(0,-1,0)} \text{ no es lineal.}
+			\end{equation*}
+			
+			%Inciso "e", del ejercicio 5 de transfrommaciónes lineales
+			
+			\item \(2.1_e\) 
+			\(F: \mathbb{R}^2 \to \mathbb{R}^2\) definida por \(F(x,y)=(2x,y-x)\)\\
+			
+			Aditividad:\\
+			\\Sea \(u=(x_1,y_1)\) y \(v=(x_2,y_2)\)
+			\begin{equation*}
+				\begin{aligned}
+					\implies F(u+v) &=F(x_1+x_2,y_1+y_2)\\
+									&=(2(x_1+x_2),(y_1+y_2)-(x_1+x_2))
+				\end{aligned}
+			\end{equation*}
+			
+			Homogeneidad:\\
+			\\Sea \(\lambda \in \mathbb{R}\) y \(u=(x,y)\)
+			\begin{equation*}
+				\begin{aligned}
+					\implies F(\lambda u) &=(2(\lambda x),\lambda_y-\lambda_x)\\
+										  &=(\lambda 2x, \lambda (y-x))\\
+										  &=\lambda (2x,y-x)\\
+										  &=\lambda F(u)
+				\end{aligned}
+			\end{equation*}
+			
+			Cumple con aditividad y homogeneidad
+			\begin{equation*}
+				\boxed{\therefore F(x,y)=(2x,y-x)} \text{ es lineal.}
+			\end{equation*}
+			
+		\end{enumerate}
+		
+		\begin{enumerate}
+			
+			%Ejercicio 6, de transfromaciones lineales
+			
+			\item[] \(2.2_6\) Determina cuáles de las siguientes aplicaciones son lineales:
+			
+			%Inciso "a", del ejercicio 6, de transfromaciones lineales
+			
+			\item \(2.2_a\) 
+			\(F:M_{2\times2}(\mathbb{R})\to \mathbb{R}\) definida por:
+			\begin{equation*}
+				F(A) = tr(A) \text{ (la traza de A)}
+			\end{equation*}
+			
+			%Inciso "c", del ejercicio 6, de transfromaciones lineales
+			
+			\item \(2.2_c\) 
+			\(F:\mathbb{C}^2 \to \mathbb{C}^2\) definida por:
+			\begin{equation*}
+				F(z_1, z_2) = (\overline{z_1}, z_2)
+			\end{equation*}
+			donde \(\overline{z_1}\) es el conjugado complejo de \(z_1\)
+			
+			%Inciso "d", del ejercicio 6, de transfromaciones lineales
+			
+			\item \(2.2_d\) 
+			\(F:\mathbb{R}^3 \to M_{2\times2}(\mathbb{R})\) definida por:
+			\begin{equation*}
+				F(x,y,z) = 
+				\begin{pmatrix}
+					x & y \\
+					0 & z
+				\end{pmatrix}
+			\end{equation*}
+			
+			Aditividad:\\
+			Si \(u=(x_1,y_1,z_1)\) y \(v=(x_2,y_2,z_2)\)
+			\begin{equation*}
+				\begin{aligned}
+					F(u+v) &=F(x_1+x_2,y_1+y_2,z_1+z_2)\\ 
+						   &=\begin{pmatrix}
+						   		x_1+x_2 & y_1+y_2 \\
+						   		0       & z_1+z_2
+						     \end{pmatrix}\\ 
+						   &=\begin{pmatrix}
+						   		x_1 & y_1 \\
+						   		0   & z_1
+						     \end{pmatrix} +
+						     \begin{pmatrix}
+						     	x_2 & y_2\\
+						     	0   & z_2
+						     \end{pmatrix}\\
+						   &=F(u)+F(v)
+				\end{aligned}
+			\end{equation*}
+			
+			Homogenidad:\\
+			Para \(\alpha \in \mathbb{R}\) y \(u=(x,y,z)\)
+			\begin{equation*}
+				\begin{aligned}
+					\implies F(\alpha u) &=F(\alpha x, \alpha y, \alpha z)\\
+										 &=\begin{pmatrix}
+										 	\alpha x & \alpha y\\
+										 	0        & \alpha z
+										   \end{pmatrix}\\
+										 &=\alpha \begin{pmatrix}
+										 	x & y \\
+										 	0 & z
+										 \end{pmatrix}\\
+										 &=\alpha F(u)
+				\end{aligned}
+			\end{equation*}
+			
+		\end{enumerate}
+		
+		\begin{enumerate}
+			
+			%Ejercicio 7, de transformaciónes lineales
+			
+			\item[] \(2.3_7\) Sea \(T\) una transformación lineal de \(\mathbb{R}^2\) en \(\mathbb{R}^2\) tal que \(T(1,0)=(2,1)\) y \(T(0,1)=(-1,2)\). Sea \(\mathscr{C}\) el cuadrado cuyos vértices son \((0,0),(1,0),(1,1)\) y \((0,1)\). Muestra que la imagen de este cuadrado bajo \(T\) es un paralelogramo.
+			
+		\end{enumerate}
+		
+		\begin{enumerate}
+			
+			%Ejercicio 8, de transformaciónes lineales
+			
+			\item[] \(2.4_8\) Sea \(L:\mathbb{R}^2 \to \mathbb{R}^2\) una aplicación lineal, con el siguiente efecto sobre los vectores indicados:
+			
+			%Inciso "a", del ejercicio 8 de transfromaciónes lineales
+			
+			\item \(2.4_a\) \(L(3,1)=(1,2)\) y \(L(-1,0)=(1,1)\)
+			
+			Suponiendo a \(L\) como : 
+			
+			\(
+			A=
+			\begin{pmatrix}
+					a & b \\
+					c & d
+			\end{pmatrix}
+			\)
+			
+			\begin{equation*}
+				\implies L(x,y)=
+				\begin{pmatrix}
+					ax + by\\
+					cx + dy
+				\end{pmatrix}
+			\end{equation*}
+			
+			Sabemos
+			\begin{equation*}
+				\begin{aligned}
+					L(3,1)=(1,2) &\implies 3a+b=1 \\
+						          &\implies 3c+d=2 \\
+					L(-1,0) =(1,1) &\implies -a=1 \\
+									&\implies a=-1 \\
+									&\implies -c=1 \\
+									&\implies c=-1 
+				\end{aligned}
+			\end{equation*}
+			
+			Sustituimos \(a=-1\) y \(c=-1\)
+			
+			\begin{equation*}
+				\begin{aligned}
+					\implies 3(-1)+b=1 &\implies b=4 \\
+					\implies 3(-1)+d=2 &\implies d=5 \\
+				\end{aligned}
+			\end{equation*}
+			
+			Obtenemos
+			\(
+			A=
+			\begin{pmatrix}
+				-1 & 4 \\
+				-1 & 5
+			\end{pmatrix}
+			\)
+			
+			\begin{equation*}
+				\implies L(1,0)=A
+				\begin{pmatrix}
+					1 \\
+					0
+				\end{pmatrix}
+				=
+				\begin{pmatrix}
+					-1 \\
+					1
+				\end{pmatrix}
+			\end{equation*}
+			
+			\begin{equation*}
+				\boxed{\therefore L(1,0)=(-1,-1)}
+			\end{equation*}
+			
+			%Inciso "b" del ejercicio 8, de transformaciones lineales
+			
+			\item \(2.4_b\) \(L(4,1)=(1,1)\) y \(L(1,1)=(2,-2)\)
+			
+		\end{enumerate}
+		
+		\section*{3. Núcleo e Imagen}
+		
+		\begin{enumerate}
+			
+			%Ejercicio 10, de Núcleo e Imagen
+			
+			\item[] \(3.1_{10}\) Para cada una de las funciones dadas en los siguientes incisos demuestra que \(T\) es una transformación lineal y encuentra las bases para \(N(T)\) e \(Im(T)\). Luego calcula la nulidad y el rango de \(T\) y verifica que la nulidad\((T)+\text{rango}(T)=\dim V\). Finalmente determina si \(T\) es inyectiva o suprayectiva.
+			
+			\begin{equation*}
+				\text{a) } T:\mathbb{R}^3\to\mathbb{R}^2; \quad T(a_1,a_2,a_3) = (a_1+2a_2 - a_1)
+			\end{equation*}
+			
+			Sea \(u=(u_1,u_2,u_3)\) y \(v=v_1,v_2,v_3\) y \(c \in \mathbb{R}\)
+			
+			Aditividad:\\
+			\begin{equation*}
+				\begin{aligned}
+					\text{Tenemos } T(u+v) &=T(u_1+v_1,u_2+v_2,u_3+v_3) \\
+										   &=((u_1+v_2) +2(u_2+v_2), 2(u_3+v_3) -(u_1+v_1)) \\
+										   &=(u_1+2u_2,2u_3-u_1)+(v_1+2v_2,2v_3-v_1) \\
+										   &=T(u)+T(v)
+				\end{aligned}
+			\end{equation*}
+			
+			Homogeneidad: \\
+			\begin{equation*}
+				\begin{aligned}
+					\text{Tenemos } T(cu) &=T(cu_1,cu_2,cu_3) \\
+										  &=(cu_1+2cu_2,2cu_3-cu_1) \\
+										  &=c(u_1+2u_2,3u_3-u_1) \\
+										  &=cT(u)
+				\end{aligned}
+			\end{equation*}
+			
+			\begin{equation*}
+				\boxed{\therefore T \text{, es lineal}}
+			\end{equation*}
+			
+			\textbf{Núcleo \(N(T):\)} \\
+			
+			Buscamos \(a_1,a_2,a_3\) tales que \(T(a_1.a_2,a_3=0,0) \) y obtenemos:
+			
+			\begin{equation*}
+				\begin{cases}
+					a_1+2a_2 &=0 \\
+					-a_1+2a_3 &=0
+				\end{cases}
+			\end{equation*}
+			
+			\begin{equation*}
+				\begin{aligned}
+					\implies& -(-2a_2)+2a_3 =0 \\
+					\implies&2a_2+2a_3     =0 \\
+					\implies& a_2+a_3       =0 \\
+					\implies& a_3           =-a_2\\
+					\implies& (a_1,a_2,a_3) =(-2a_2,a_2+2a_3) 
+										   =a_2(-2,1,-1) \\
+					\implies& N(T)=(-2,1,-1) \text{, Nulidad=1}
+				\end{aligned}
+			\end{equation*}
+			
+			\textbf{\(Im(T)\) y rango:}
+			
+			Sabemos que las imágenes de la base canónica: \\
+			\begin{equation*}
+				\begin{aligned}
+					T(e_1) &=T(1,0,0) 
+						    =(1,-1) \\
+					T(e_2) &=T(0,1,0) 
+						    =(2,0) \\
+					T(e_3) &=T(0,0,1) 
+						    =(0,2)
+				\end{aligned}
+			\end{equation*}
+			
+			Entonces: \((0,2) = -2(1,-1) + 1(2,0)\). Por lo que \((1,-1),(2,0)\) son una base de \(Im(T)\) y \(\dim Im(T)=2\). (rango 2)\\
+			Como el codominio es \(\mathbb{R}^2\) y \(\dim Im(T)=2\), se sigue que \(Im(T)=\mathbb{R}^2\)
+			
+			\[
+			\boxed{\therefore T \text{, es sobreyectiva.}} 
+			\]
+			
+			\begin{equation*}
+				\begin{aligned}
+					\implies \dim N(T) + \dim Im (T) &=1+2 \\
+													 &= 3 \\
+												 	 &=\dim \mathbb{R}^3
+				\end{aligned}
+			\end{equation*}
+			
+			\begin{equation*}
+				\boxed{\text{\(T\), no es inyectiva, ya que \(Ker(T)\neq 0\).}}
+			\end{equation*}
+			
+			\begin{equation*}
+				\boxed{\text{\(T\), es sobreyectiva, ya que \(Im (T)=\mathbb{R}^2\).}}
+			\end{equation*}
+			
+			\begin{equation*}
+				\text{b) } T:M_{2\times 3}(\mathbb{C})\to M_{2\times 2}(\mathbb{C}); \quad 
+				T\begin{pmatrix}
+					a_{11} & a_{12} & a_{13}  \\
+					a_{21} & a_{22} & a_{23}
+				\end{pmatrix} =
+				\begin{pmatrix}
+					2a_{11} - 2a_{12} & a_{13} - 2a_{12} \\
+					0 				  & 0
+				\end{pmatrix}
+			\end{equation*}
+			
+			\begin{equation*}
+				\text{c) } T:P_n(\mathbb{R}) \to P_{n-1}(\mathbb{R}); \quad T(p) = p' + p''
+			\end{equation*}
+			
+			Si \(p,q \in P_n\) y \(\alpha ,\beta \in \mathbb{R}\)
+			
+			\begin{equation*}
+				\begin{aligned}
+					\implies T(\alpha p + \beta q) &= (\alpha p + \beta q)' + 2(\alpha p + \beta q)'' \\
+												   &= \alpha(p'+2p'') +       \beta(a' + 21'')\\
+												   &=\alpha T(p) + \beta T(q)
+				\end{aligned}
+			\end{equation*}
+			
+			\textbf{Núcleo:} \\
+			Sea \(p(x)=a_0+a_1x+a_2x^2+\dots +_nx^{n}\)
+			\begin{equation*}
+				\begin{aligned}
+					\implies &p'(x)  &= a_1+2a_2x+3a_3x^2+ \dots +na_{n}x^{n-1} \\
+							 &p''(x) &= 2a_2+6a_3x+12a_4x^2+ \dots +n(n-1)a-{n}x^{n-2} \\
+				\end{aligned}
+			\end{equation*}
+			
+			\begin{equation*}
+				\begin{aligned}
+					\implies T(p) &= q' + 2p'' \\
+								  &= (a_1 + 4a_2) + (2a_2+12a_3)x + (3a_3+24a_4)x^2 + \dots + n a_n x^{n-1}
+				\end{aligned}
+			\end{equation*}
+			
+			Para que \(T(p)'=0\), todos los coeficientes deben anularse:
+			
+			\begin{equation*}
+				\begin{aligned}
+					na_n &= 0
+					\implies an &=0
+				\end{aligned}
+			\end{equation*}
+			
+			Con esto el término anterior de \(a_{n-1}=0\), luego \(a_{n-2=0}\), y así sucesivamente hasta \(a_1=0\)
+			
+			\[
+			\boxed{\therefore N(T)= \text{span}\{1\}, \dim N(T)=1.}
+			\]
+			
+			\textbf{Imagen: }\\
+			Tenemos
+			\begin{equation*}
+				\begin{aligned}
+					p(x) &= a_0+a_1x+a_2x^2+\dots +_nx^{n} \\
+					p'(x)  &= a_1+2a_2x+3a_3x^2+ \dots +na_{n}x^{n-1} \\
+					p''(x) &= 2a_2+6a_3x+12a_4x^2+ \dots +n(n-1)a-{n}x^{n-2} \\
+				\end{aligned}
+			\end{equation*}
+			
+			\begin{equation*}
+				\begin{aligned}
+					\implies T(p) &=p'+2p'' \\
+								  &=(a_1+4a_2)+(2a_2+12a_3)x+(3a_3+24a_4)x^2+\dots +na_{n}x^{n-}
+				\end{aligned}
+			\end{equation*}
+			
+			Sea:
+			\begin{equation*}
+				q(x)=b_0+b_1x+b_2x^2+\dots +b_{n-1}x^{n-1} \in P_{n-1}
+			\end{equation*}
+			
+		\end{enumerate}
+		
+		\begin{enumerate}
+			
+			%Ejercicio 11, de Núcleo e Imagen
+			
+			\item[] \(3.2_{11}\) Sean \(V\) y \(W\) espacios vectoriales de dimensión finita tales que \(\dim V<\dim W\) y \(T:V\to W\) una transformación lineal. Demuestra que \(T\) no es suprayectiva.
+			
+		\end{enumerate}
+		
+		Comparando coeficientes:
+		\begin{equation*}
+			\begin{aligned}
+				na_{n} 		 &=b_{n-1} \\
+				\implies a_n &= \frac{b_{n-1}}{n} \\
+				(n-1)_{an-1}+2n(n-1)_{an} &=b_{n-2} \\
+				\implies a_{n-1} &= \frac{b_{n-2-2n(n-1)_{an}}}{n-1} \\
+				(n-2)_{an-2}+2(n-1)(n-2)_{an-1} &=b_{n-3} \\
+				\implies an-2 &= \frac{b_{n-3}-2(n-1)(n-2)_{an-1}}{n-2} \\
+				\vdots \\
+				2_{a2}+12_{a3} &=b_1 \\
+				a1+4_{a2} &=b_0, a_0 \text{ libre.}
+			\end{aligned}
+		\end{equation*}
+		Entonces:
+		\begin{equation*}
+			\begin{aligned}
+				Im(T) &=P_{n-1}\\
+				\dim Im(T) &=n \\
+				\text{nulidad }(T) &=1
+				\text{, rango }(T) =n \\
+				\text{nulidad}(T)+\text{rango}(T)=1+n
+				&=n+1 \\
+				&=\dim Pn
+			\end{aligned}
+		\end{equation*}
+		
+		\[
+		\boxed{T\text{, no es inyectiva, ya que el núcleo no es }0.}
+		\]
+		
+		\[
+		\boxed{T\text{, si es suprayectiva, ya que su imagen es todo }P_{n-1}.}
+		\]
+		
+		\begin{enumerate}
+			
+			%Ejercicio 13, Núcleo e Imagen
+			
+			\item[] \(3.3_{13}\) Sea \(T:\mathbb{R}^2\to\mathbb{R}^2\) tal que \(Ker(T)=Im(T)\)
+			
+			\begin{equation*}
+				\text{a) Demuestra que } T \text{ es una transformación lineal}
+			\end{equation*}
+			
+			P.D. \(T\) es una transformación lineal, para cualesquiera polinomios \(f,g\in P (\mathbb{R})\) y cualquier escalar \(\alpha \in \mathbb{R}\) se cumple:
+			
+			\begin{equation*}
+				\begin{aligned}
+					T(f+g) = T(f) + T(g) \\
+					T(\alpha f) = \alpha, T(f)
+				\end{aligned}
+			\end{equation*}
+			
+			Entonces, tomemos \(f,g\in P(\mathbb{R})\). \\
+			Sabemos que: 
+			\begin{equation*}
+				\begin{aligned}
+					(f+g)' &=f'+g' \\
+					T(f+g) &= (f+g)' \\
+						   &= f'+g' \\
+					&=T(f)+T(g)
+				\end{aligned}
+			\end{equation*}
+			
+			Para $\alpha$ \\
+			\begin{equation*}
+				\begin{aligned}
+					(\alpha f)' &=\alpha f' \\
+					T(\alpha f) &=(\alpha f)' \\
+								&=\alpha f' \\
+								&=\alpha T(f)
+				\end{aligned}
+			\end{equation*}
+			
+			\[
+			\boxed{\therefore T \text{, es lineal }}
+			\]
+			
+			\begin{equation*}
+				\text{b) Demuestra que } T \text{ es suprayectiva}
+			\end{equation*}
+			
+			\begin{equation*}
+				\text{c) Muestra con un ejemplo que } T \text{ no es inyectiva}
+			\end{equation*}
+			
+			Sea un polinomio general:
+			\begin{equation*}
+				\begin{aligned}
+					p(x)&=a_0+a_1x+a_2x^2+\dots+a_{n}x^n
+					\implies p(x)' &a_1+2a_2x+3a_3x^2+\dots+na_nx^{n-1}
+				\end{aligned}
+			\end{equation*}
+			
+			Si \(p(x)=0\), entonces anulamos todos los coeficientes:
+			\begin{equation*}
+				a_1=0, 2a_2=0, 3a_3=0,\dots,na_{n}=0
+			\end{equation*}
+			
+			Entonces los únicos polinomios en el núcleo son \(p(x)=a_0\)
+			
+			\[
+			\implies Ker(T)=\{p(x)=c : c\in \mathbb{R} \}=span\{1\}
+			\]
+			
+			\[
+			\therefore \text{El núcleo no es }0\text{ si no que todas las constantes}\neq 0 
+			\]
+			
+			\[
+			\boxed{\therefore T \text{ no es inyectiva.} }
+			\]
+			
+		\end{enumerate}
+		
+		\begin{enumerate}
+			
+			%Ejercicio 16, de Núcleo e Imagen
+			
+			\item[] \(3.4_{16}\) Supongamos que \(U\) y \(V\) son espacios vectoriales de dimensión finita y que \(S\in\mathscr{L}(V,W), T\in\mathscr{L}(U,V)\). Demuestra que:
+			
+			\begin{equation*}
+				\dim\text{ }Im(ST) \leq \dim\text{ Ker}S + \dim\text{ Ker}T
+			\end{equation*}
+			
+			\textbf{Hint:} Usar el Teorema de la dimensión y la contención \(Im(ST) \subseteq Im(S)\)
+			
+		\end{enumerate}
+		
+		\begin{enumerate}
+			
+			%Ejercicio 18, Inciso "a" de Núcleo e Imagen
+			
+			\item[] \(3.5_{18.a}\) Supongamos que \(\dim V=5\) y que \(S,T \in \mathscr{L}(V)\) son tales que \(ST=0\). Demuestra que:
+			
+			\begin{equation*}
+				\dim\text{ Im}(TS) \leq 2
+			\end{equation*}
+			
+			Primero definimos \(N=TS \implies N^2=(TS)(TS)\) \\
+			
+			Entonces: \\
+			\begin{equation*}
+				T(ST) = T0S = 0 
+			\end{equation*}
+			
+			Como \(N^2=0\) se deduce que la\(Im N\) contenida en el \(Ker N\):\\
+			Se deduce una inclusión entre imagen y núcleo \\
+			\(\implies\) Se toma cualquier \(y\in Im N\) \\
+			
+			Entonces:
+			\begin{equation*}
+				\exists x \in V \text{, tal que } y =Nx
+			\end{equation*}
+			
+			Aplicando \(N\) a \(y\): \\
+			\begin{equation*}
+				\begin{aligned}
+					Ny &=N(Nx)
+					   &=N^2x
+					   &=0
+				\end{aligned}
+			\end{equation*}
+			
+			\[
+			\boxed{\therefore y \in Ker N}
+			\]
+			
+			Usando rango-nulidad:
+			\begin{equation*}
+				\begin{aligned}
+					&\forall N:V \to V \\
+					&\dim Ker N + \dim Im N=\dim V = 5
+				\end{aligned}
+			\end{equation*}
+			
+			Como vimos que:
+			\begin{equation*}
+				\begin{aligned}
+					Im N &\subseteq Ker N \\
+					\dim Im N &\geq 2 \dim Im N
+				\end{aligned}
+			\end{equation*} 
+			Sumamos:
+			\begin{equation*}
+				\begin{aligned}
+					\dim Ker N+\dim Im N &\geq 2 \dim Im N \\
+					\implies \dim Im N& \leq 5
+				\end{aligned}
+			\end{equation*}
+			
+			Obtenemos:
+			\begin{equation*}
+				\begin{aligned}
+					\dim Im N &\leq \left[\frac{5}{2}\right] \\
+							  &= 2 \\
+					N 		  &= TS
+				\end{aligned}
+			\end{equation*}
+		\end{enumerate}
+		\[
+		\boxed{\therefore \dim Im(TS) \leq 2}
+		\]
+		
+	\end{document}
+		
